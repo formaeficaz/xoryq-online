@@ -512,7 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <!-- CTAs -->
           <div class="space-y-3 md:space-y-4 flex-col flex items-center justify-center gap-8">
-            <a href="./vsl.html" class="w-full bg-blue hover:bg-bluedark text-white font-semibold py-3 md:py-4 px-4 md:px-6 text-sm md:text-base rounded-lg transition-colors duration-200 shadow-md">
+            <a href="./vsl.html" onclick="event.stopImmediatePropagation(); window.location.href='vsl.html'+window.location.search; return false;" class="w-full bg-blue hover:bg-bluedark text-white font-semibold py-3 md:py-4 px-4 md:px-6 text-sm md:text-base rounded-lg transition-colors duration-200 shadow-md">
               Watch Official Video: How to Receive $2,350.00
             </a>
 
