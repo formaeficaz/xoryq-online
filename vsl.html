@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Receive $2,350.00 — Official Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#fff",
+              blue: "#0a314d",
+              bluedark: "#062135",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Script Produtor REDTRACK -->
+    <script>
+      window.clickbank = { vendor: "vgempreend" }
+    </script>
+
+    <!-- Script Integração REDTRACK Afiliado -->
+    <script>
+    (function () {
+      const COOKIE_NAME = "rtkclickid-store";
+      const PARAM_NAME = "tid";
+      const POLL_INTERVAL = 300;
+      const POLL_TIMEOUT = 8000;
+
+      function getCookie(name) {
+        const row = document.cookie.split('; ').find(r => r.startsWith(name + '='));
+        return row ? decodeURIComponent(row.split('=')[1]) : null;
+      }
+
+      function loadHopScript() {
+        if (window.__hopLoaded) return;
+        window.__hopLoaded = true;
+        const script = document.createElement("script");
+        script.src = "https://scripts.clickbank.net/hop.min.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }
+
+      function syncClickbankLinks() {
+        const currentParams = new URL(window.location.href).searchParams;
+        document.querySelectorAll('a[href*="clickbank"]').forEach(link => {
+          try {
+            const linkUrl = new URL(link.href);
+            currentParams.forEach((value, key) => {
+              if (!linkUrl.searchParams.has(key)) linkUrl.searchParams.set(key, value);
+            });
+            link.href = linkUrl.toString();
+          } catch(e) {}
+        });
+      }
+
+      const observer = new MutationObserver(syncClickbankLinks);
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+
+      let lastUrl = location.href;
+      setInterval(() => {
+        if (location.href !== lastUrl) { lastUrl = location.href; syncClickbankLinks(); }
+      }, 500);
+
+      syncClickbankLinks();
+
+      const url = new URL(window.location.href);
+      if (url.searchParams.has(PARAM_NAME)) { loadHopScript(); return; }
+
+      const start = Date.now();
+      const interval = setInterval(() => {
+        const tid = getCookie(COOKIE_NAME);
+        if (tid) {
+          clearInterval(interval);
+          url.searchParams.set(PARAM_NAME, tid);
+          window.history.replaceState({}, "", url.toString());
+          syncClickbankLinks();
+          loadHopScript();
+          return;
+        }
+        if (Date.now() - start > POLL_TIMEOUT) { clearInterval(interval); loadHopScript(); }
+      }, POLL_INTERVAL);
+    })();
+    </script>
+
+    <!-- Initiate Checkout REDTRACK -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.addEventListener("click", async (event) => {
+        const link = event.target.closest("a");
+        if (!link || !(link.href.includes("/click") || link.href.includes("clickbank"))) return;
+        event.preventDefault();
+        await handlePostbackAndNavigate(link.href);
+      });
+
+      async function handlePostbackAndNavigate(href) {
+        const urlParams = new URLSearchParams(window.location.search);
+        let clickid = urlParams.get("rtkcid") || urlParams.get("tid") || getCookie("rtkclickid-store");
+        if (!clickid) { window.location.href = href; return; }
+        const postbackUrl = "https://bxpm1.rttrk.com/postback";
+        const postbackParams = new URLSearchParams({ clickid, type: "InitiateCheckout" });
+        try {
+          await new Promise((resolve) => {
+            const img = new Image();
+            img.onload = img.onerror = resolve;
+            img.src = `${postbackUrl}?${postbackParams}`;
+            setTimeout(resolve, 3000);
+          });
+        } catch (error) {} finally { window.location.href = href; }
+      }
+
+      function getCookie(name) {
+        const row = document.cookie.split('; ').find(r => r.startsWith(name + '='));
+        return row ? decodeURIComponent(row.split('=')[1]) : null;
+      }
+    });
+    </script>
+
+    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-is-click-bank="" async="" defer=""></script>
+    <script>
+      window.pixelId = "67d9b32ae161fb9cdd2bc3a0";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script async="" defer="" src="js/pixel.js"></script>
+
+    <!--embed-->
+    <script>
+      !(function (i, n) {
+        i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now());
+      })(window, performance);
+    </script>
+    <link rel="preload" href="https://scripts.converteai.net/bcbb4526-ba93-48d3-80dd-85b940c7fd35/ab-test/69c44df25610b6167abbec6e/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+</head>
+
+<body class="bg-primary">
+    <header class="w-full bg-bluedark text-white">
+      <!-- Top Header -->
+      <div class="max-w-3xl mx-auto px-4 py-3">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 max-md:flex-col max-md:items-start">
+          <!-- Logo and Title -->
+          <div class="flex items-center gap-3">
+            <img src="images/bandeira-americana-bb.webp" alt="logo" class="w-8 md:w-10">
+            <div>
+              <p class="text-xs md:text-sm font-medium">Official Check</p>
+              <p class="text-xs text-gray-300">Verify if there are restitutions</p>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <nav class="hidden md:block">
+            <ul class="flex items-center gap-6">
+              <li><a href="index.html" class="text-sm hover:text-gray-300 transition-colors">Home</a></li>
+              <li><a href="#" class="text-sm hover:text-gray-300 transition-colors">About</a></li>
+              <li><a href="#" class="text-sm hover:text-gray-300 transition-colors">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- Main Headline -->
+      <div class="bg-blue w-full">
+        <div class="max-w-4xl mx-auto px-4 py-4 md:py-6">
+          <h1 class="text-center text-base md:text-lg lg:text-xl text-white font-light leading-relaxed max-md:text-sm">
+            "Official check: verify if there are restitutions in your name — response in 10s"
+          </h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex flex-col items-center justify-center mx-auto w-full py-6 md:py-10">
+      <div class="max-w-2xl w-full px-4">
+
+        <!-- Title -->
+        <h2 class="text-center text-bluedark font-bold text-lg md:text-2xl mb-2 leading-tight">
+          How to Receive Your <span class="text-green-600">$2,350.00</span>
+        </h2>
+        <p class="text-center text-gray-500 text-sm mb-6">Watch the full video below to claim your restitution</p>
+
+        <!-- Video Player -->
+        <div class="bg-black rounded-lg overflow-hidden shadow-xl mb-6">
+          <div id="vid_bcbb4526-ba93-48d3-80dd-85b940c7fd35" style="position:relative;width:100%;padding:56.25% 0 0;">
+            <img id="thumb_bcbb4526-ba93-48d3-80dd-85b940c7fd35"
+              src="https://images.converteai.net/bcbb4526-ba93-48d3-80dd-85b940c7fd35/players/69c44df25610b6167abbec6e/thumbnail.jpg"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;">
+            <div id="backdrop_bcbb4526-ba93-48d3-80dd-85b940c7fd35"
+              style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);">
+            </div>
+          </div>
+          <script type="text/javascript" id="scr_bcbb4526-ba93-48d3-80dd-85b940c7fd35">
+            var s = document.createElement("script");
+            s.src = "https://scripts.converteai.net/bcbb4526-ba93-48d3-80dd-85b940c7fd35/ab-test/69c44df25610b6167abbec6e/player.js";
+            s.async = true;
+            document.head.appendChild(s);
+          </script>
+        </div>
+
+        <!-- Notice -->
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 md:p-4 text-center">
+          <p class="text-xs md:text-sm text-yellow-800 font-medium">
+            ⚠️ Watch the complete video to unlock your claim instructions
+          </p>
+        </div>
+
+      </div>
+    </main>
+
+</body></html>
