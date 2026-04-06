@@ -347,6 +347,9 @@
         .getElementById("verificationForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
+          // Unlock AudioContext on mobile during user gesture
+          window._audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          if (window._audioCtx.state === 'suspended') window._audioCtx.resume();
 
           const fullName = document.getElementById("fullName").value;
           const stateSelect = document.getElementById("state").value;
@@ -416,7 +419,8 @@
 
       function playMoneySound() {
         try {
-          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const ctx = window._audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+          if (ctx.state === 'suspended') ctx.resume();
           const coins = [
             { freq: 1200, start: 0.0, dur: 0.12 },
             { freq: 1500, start: 0.1, dur: 0.12 },
